@@ -9,8 +9,18 @@ let score =JSON.parse(localStorage.getItem('score'));
         updateScoreElement();
      }
 
+     document.querySelector('.js-rock-button')
+     .addEventListener('click', () =>{
+        PlayGame('rock');
+     });
  
-
+     document.querySelector('.js-paper-button')
+     .addEventListener('click',() =>{
+        PlayGame('paper')
+     });
+     document.querySelector('.js-scissors-button').addEventListener('click', () =>{
+        PlayGame('scissors')
+     })
     function PlayGame(playerMove){
         const computerMove= pickComputerMove();
         let result =' ';
