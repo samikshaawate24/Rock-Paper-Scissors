@@ -16,11 +16,23 @@ let score =JSON.parse(localStorage.getItem('score'));
  
      document.querySelector('.js-paper-button')
      .addEventListener('click',() =>{
-        PlayGame('paper')
+        PlayGame('paper');
      });
      document.querySelector('.js-scissors-button').addEventListener('click', () =>{
-        PlayGame('scissors')
-     })
+        PlayGame('scissors');
+     });
+
+     document.body.addEventListener('keydown' ,(event) => {
+        if(event.key === 'r'){
+            PlayGame('rock');
+        }
+        else if(event.key === 'p'){
+            PlayGame('paper');
+        }else if(event.key === 's'){
+            PlayGame('scissors');
+        }
+     });
+   
     function PlayGame(playerMove){
         const computerMove= pickComputerMove();
         let result =' ';
@@ -34,7 +46,7 @@ let score =JSON.parse(localStorage.getItem('score'));
             }
         } else if (playerMove === 'paper'){
             if(computerMove === 'rock'){
-            result = 'You win';
+            result = 'You win.';
             } else if(computerMove === 'paper'){
                 result = 'Tie.';
             }else if(computerMove === 'scissors'){
